@@ -8,12 +8,12 @@ using namespace std;
 
 int main()
 {   
-    vector<int> t = {2,2,2,2};
+    vector<int> t = {2,5,3,6};
     Network net1(t); // create network with above topology
 
     //net1.printNetwork();
 
-    vector<double> x = {1,0};
+    vector<double> x = {0,0,0,1,1,0,1,1}; // input data sets = {[0,0][0,1][1,0][1,1]}
     cout << "Input:\n";
 
     for(int i = 0; i < x.size();i++){
