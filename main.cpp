@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {   
-    vector<int> t = {2,5,3,6};
+    vector<int> t = {2,2,2};
     Network net1(t); // create network with above topology
 
     //net1.printNetwork();

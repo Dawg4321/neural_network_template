@@ -16,12 +16,12 @@ Neuron::~Neuron()
 
 }
 
-void Neuron::forwardData(double input) // pass data through the input neuron
+void Neuron::forwardData(double &input) // pass data through the input neuron
 {                                      // (pass input through with no weight applied)
-    setOutput(input);
+    output = input*neuron_weights[0];
 }
 
-void Neuron::forwardData(vector<double> input_vector) // pass data through neuron
+void Neuron::forwardData(vector<double> &input_vector) // pass data through neuron
 {
     double sum_val = 0;
 
@@ -32,13 +32,13 @@ void Neuron::forwardData(vector<double> input_vector) // pass data through neuro
     output = activationFunction(sum_val); // setting output using activation function
 }
 
-double Neuron::activationFunction(double x)
+double Neuron::activationFunction(double &x) // activation function for feedforwarding
 {
     return 1/(1+exp(x*(-1))); // return sigmoid(x)
 }
-double Neuron::activationDerivative(double x)
+double Neuron::activationDerivative(double &x) // derivation of activation function for backpropagation
 {
-    return x;
+    return x*(1-x); // return d(sigmoid)/dx
 }
 
 double Neuron::getOutput() // return output
@@ -46,7 +46,7 @@ double Neuron::getOutput() // return output
     return output;
 }
 
-void Neuron::setOutput(double input) // set output
+void Neuron::setOutput(double &input) // set output
 {
     output = input;
 }

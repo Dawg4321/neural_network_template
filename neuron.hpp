@@ -13,7 +13,9 @@ class Neuron
     private:
         static int id_tracker; // stores next available id
         int id;
+        
         double output;
+
         vector<double> neuron_weights;
 
     public:
@@ -21,25 +23,19 @@ class Neuron
         ~Neuron();
 
         // forward data through neuron
-        void forwardData(double); 
-        void forwardData(vector<double>);
+        void forwardData(double &); 
+        void forwardData(vector<double> &);
 
         // activation functions for the neuron
-        double activationFunction(double);
-        double activationDerivative(double);
+        double activationFunction(double &);
+        double activationDerivative(double &);
         
         // setters and getters
         double getOutput();
-        void setOutput(double);
+        void setOutput(double &);
 
         // print neuron details
         void printNeuron();
-
-
-
 };
-
-
-
 
 #endif

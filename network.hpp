@@ -16,18 +16,20 @@ class Network
                                     // effectively a vector matrix
         
         vector<double> net_output; // vector to store network output from feedForward
+
     public:
         Network(vector<int> &);
         ~Network();
 
-        // forward data through the network
-        void feedForward(vector<double> &);
+        void feedForward(vector<double> &); // forward data through the network
+        void propBack(vector<double> &); // propagate backwards through the network
 
-        // return network output
-        vector<double> getNetOutput();
+        double calcOutputGrad(double, int); // calculate output gradient for a single val
+        double calcHiddenGrad(double &expected, double &actual, int layer_num, int neuron_num); // calculate hidden layer gradient for a single val
 
-        void printNetwork();
+        vector<double> getNetOutput(); // return network output
 
+        void printNetwork(); // print network details
 };
 
 #endif
